@@ -1,0 +1,79 @@
+---
+title: "Core Modules"
+---
+
+## 🧩 Core Modules
+
+The PolinaOS architecture is modular and extensible. You can adopt a single module or deploy the full loop — depending on your project’s needs. Each module is powered by specialized agents that collaborate to automate data collection, mission generation, impact assessment, and reward distribution.
+
+---
+
+### 1. 📊 Project Intelligence Layer
+
+**Purpose**: Collect and analyze project context, trends, goals, and market positioning.
+
+- **Data sources** include on-chain events, token metadata, and recent Twitter activity.
+- The **Analysis Agent** is responsible for synthesizing this information into a real-time project profile — understanding your token’s “vibe,” ideal shilling narratives, and evolving market momentum.
+- This layer creates the intelligence foundation for task generation and contributor evaluation.
+
+---
+
+### 2. 🎯 AI Mission Engine
+
+**Purpose**: Automatically generate community tasks aligned with project objectives and current market signals.
+
+- The **Creator Agent** leverages the intelligence layer to draft weekly quests: tweet prompts, meme formats, engagement drives, etc.
+- Tasks are optimized for viral growth, meaningful action, and verifiable outcomes.
+- An **Admin Interface** allows manual editing, review, or rejection before publishing to the public dashboard.
+- Tasks support rich metadata including deadlines, hashtags, KPIs, and expected behavior.
+
+---
+
+### 3. 🔍 Community Data Scanner
+
+**Purpose**: Monitor, filter, and archive all community contributions across Twitter and the blockchain.
+
+- The **Data Agent** operates a Puppeteer-based scanning infrastructure (via `ctScreener`) to track:
+  - Who is tweeting (screen_name / wallet)
+  - What’s being shared (contract mentions, hashtags, memes)
+  - When it happened (timestamp accuracy)
+- It indexes everything via job ID, tweet ID, and token keyword.
+- The agent works in tandem with `by-id`, `retweet`, and `user` APIs to build a verifiable activity graph for each contributor.
+
+---
+
+### 4. 🧮 Task Validation & Impact Scoring
+
+**Purpose**: Evaluate contribution quality, detect sybil behavior, and assign reputational scores.
+
+- The **Evaluator Agent** cross-references task data with scanner output.
+- It uses content similarity checks, engagement metrics, and behavioral heuristics to:
+  - Eliminate fake or duplicated submissions
+  - Flag low-effort engagement (e.g., bot retweets)
+  - Score based on reach, quality, timeliness, and originality
+- Outputs include individual reputation scores and ranked contributor lists — per task or weekly.
+
+---
+
+### 5. 🎁 Reward Distribution Layer
+
+**Purpose**: Automatically distribute tokens or points to contributors based on impact.
+
+- The **Reward Agent** reads evaluation output and applies allocation rules.
+  - Example: “Top 50 wallets by weekly score get 2% of allocation.”
+- It generates **Merkle claim proofs** and supports **Solana-based claim contracts**, with EVM support planned.
+- Everything is auditable and trustless — no need for manual approval or centralized payout systems.
+
+---
+
+### 🖥️ Admin & Community Dashboard
+
+PolinaOS comes with a built-in Dashboard for both team members and contributors:
+
+- **Admin Panel**: Review missions, scan logs, leaderboard data, and token balances.
+- **Mission Board**: Public-facing quest interface for contributors (optionally token-gated).
+- **Analytics View**: Insight into performance over time, task completion rates, and community trends.
+
+---
+
+Together, these modules — orchestrated by dedicated AI agents — allow any project to bootstrap and scale a contributor ecosystem with little to no manual oversight. Each component can run independently or as part of a unified mission-to-reward loop.

@@ -1,0 +1,40 @@
+---
+title: Architecture & Workflow
+description: How PolinaOS coordinates contributors, evaluates impact, and automates rewards.
+---
+
+PolinaOS is a modular coordination system designed to help digital-native projects automate community growth. While Web3 has accelerated this trend — with small teams launching DAOs, tokens, and experiments at scale — the need for scalable, intelligent coordination applies to any project with a public presence.
+
+Instead of relying on spreadsheets, Discord mods, or Google Forms, PolinaOS uses AI agents and public data to manage missions, monitor performance, and allocate rewards — autonomously.
+
+---
+
+## 🔁 Modular Workflow Overview
+
+1. 🧑‍💻 Creator inputs mission context
+   ⬇
+2. 🤖 **AI Task Generator** creates weekly tasks
+   ⬇
+3. 🧵 Contributors post on Twitter / perform on-chain tasks
+   ⬇
+4. 🔍 **Twitter Scanner** collects public signals
+   ⬇
+5. 🧠 **Scoring Engine** filters bots & ranks users
+   ⬇
+6. 🎯 **Reward System** allocates tokens
+   ⬇
+7. 🌐 **Claim Portal** (Solana-based) lets users redeem rewards
+
+Each step is modular and can be integrated independently. Combined, they create a fully automated contribution loop — from mission design to verifiable impact to reward delivery.
+
+---
+
+## 🛠️ Technical Summary
+
+| Component | Stack |
+|----------|-------|
+| AI Agents | Gemini + LangChain |
+| Data Layer | ctScreener APIs (Twitter) + RPC (Solana) |
+| Frontend | Next.js + Tailwind |
+| Reward Infra | Merkle Claim on Solana |
+| Hosting | Vercel (frontend) + custom job runners |
