@@ -16,6 +16,11 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: "Home",
+          collapsed: false,
+          slug: "",
+        },
+        {
           label: "Overview",
           items: [
             { label: "Introduction", slug: "introduction" },
