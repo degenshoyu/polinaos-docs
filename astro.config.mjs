@@ -27,7 +27,7 @@ export default defineConfig({
         {
           label: "Modules",
           collapsed: true,
-          items: [],
+          items: [{ label: "AI Modules", slug: "ai-core" }],
         },
       ],
     }),

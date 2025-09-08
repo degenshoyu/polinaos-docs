@@ -1,3 +1,100 @@
 ---
-title: "AI Core"
+title: AI Modules
+description: Technical breakdown of PolinaOS multi-agent system.
 ---
+PolinaOS runs on a **multi-agent AI system**.
+Each agent is specialized and communicates through structured JSON outputs and verifiable pipelines.
+Together they form the **closed-loop intelligence layer** that powers task automation and reward allocation.
+
+---
+
+### 1. 🧠 Analyst Agent – Polina
+*AI researcher & context builder*
+
+- 📡 **Context Loading**
+  → Scrapes **Twitter timelines**, **contract mentions**, **on-chain events**.
+  → Uses Puppeteer + RPC clients to rebuild the project’s **narrative landscape**.
+
+- 🗂️ **Knowledge Memory**
+  → Pulls past missions + contributor data from **PolinaOS DB**.
+  → Enables **incremental analysis** (no re-learning from scratch).
+
+- 📊 **Signal Collection**
+  → Finds top tweets, memes, influencer replies, engagement baselines.
+  → Detects abnormal attention spikes via **statistical thresholds**.
+
+- 🧾 **Project Understanding Generation**
+  → Outputs structured JSON:
+    ```json
+    {
+      "strengths": [...],
+      "weaknesses": [...],
+      "activation_opportunities": [...]
+    }
+    ```
+  → Feeds into Creator Agent.
+
+---
+
+### 2. ✨ Creator Agent – Lara
+*AI task designer, optimized for Twitter virality*
+
+- 🎯 **Mission Framing**
+  → Selects high-value tweets/narratives for amplification.
+  → Uses **contextual embeddings** to detect “shill-worthy” content.
+
+- 📝 **Task Design**
+  → Generates prompts with hashtags, media, reward rules.
+  → Embeds **cultural priors** (CT memes, slang, timing windows).
+
+- 📦 **Dynamic Packaging**
+  → Outputs tasks in schema:
+    ```json
+    {
+      "objective": "...",
+      "deadline": "...",
+      "kpis": ["views", "engagements"],
+      "tiers": ["basic", "advanced", "viral"]
+    }
+    ```
+
+- 🔄 **Adaptive Iteration**
+  → Monitors early submissions.
+  → Auto-generates A/B variants of prompts for higher engagement.
+
+---
+
+### 3. 🎯 Scoring Agent – Zero
+*Autonomous evaluator & reputation engine*
+
+- ✅ **Task Matching**
+  → Uses semantic search + regex/rule validation.
+  → Verifies tweet/post contains required **hashtags, media, timing**.
+
+- 🧮 **Effort & Originality Scoring**
+  → LLM-powered analysis of **tone, length, novelty**.
+  → Penalizes template spam & rewards authentic, thoughtful content.
+
+- 🚫 **Sybil & Spam Filtering**
+  → Cross-checks:
+    - Wallet activity (on-chain)
+    - Twitter history
+    - Submission duplication
+  → Blacklists repeated farming patterns.
+
+- 🧠 **Reputation Memory**
+  → Maintains contributor history:
+    - `score_total`
+    - `score_avg`
+    - `sybil_flags`
+  → Adjusts reward weighting dynamically.
+
+- 📤 **Output Schema**
+  ```json
+  {
+    "contributor": "0x...",
+    "task_id": "12345",
+    "score": 87,
+    "flags": ["sybil_suspected"],
+    "notes": "Low effort retweet"
+  }
