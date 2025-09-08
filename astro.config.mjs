@@ -6,11 +6,12 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "PolinaOS v0.1 Alpha",
+      favicon: "/favicon.ico",
       social: [
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/polinaos",
+          href: "https://github.com/degenshoyu",
         },
       ],
       sidebar: [
@@ -18,6 +19,7 @@ export default defineConfig({
           label: "Overview",
           items: [
             { label: "Introduction", slug: "introduction" },
+            { label: "Tokenomics", slug: "token-economy" },
             { label: "Modules", slug: "modules" },
             { label: "Workflow", slug: "workflow" },
           ],

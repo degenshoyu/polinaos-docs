@@ -1,11 +1,11 @@
 ---
 title: Architecture & Workflow
-description: How PolinaOS coordinates contributors, evaluates impact, and automates rewards.
+description: How PolinaOS collects data, analyzes signals, coordinates contributors, and automates rewards.
 ---
 
 PolinaOS is a modular coordination system designed to help digital-native projects automate community growth. While Web3 has accelerated this trend — with small teams launching DAOs, tokens, and experiments at scale — the need for scalable, intelligent coordination applies to any project with a public presence.
 
-Instead of relying on spreadsheets, Discord mods, or Google Forms, PolinaOS uses AI agents and public data to manage missions, monitor performance, and allocate rewards — autonomously.
+Instead of relying on spreadsheets, Discord mods, or Google Forms, PolinaOS uses AI agents, public data, and on-chain proof to manage missions, monitor performance, analyze sentiment, and allocate rewards — autonomously.
 
 ---
 
@@ -13,28 +13,59 @@ Instead of relying on spreadsheets, Discord mods, or Google Forms, PolinaOS uses
 
 1. 🧑‍💻 Creator inputs mission context
    ⬇
-2. 🤖 **AI Task Generator** creates weekly tasks
+2. 📊 **Project Intelligence Layer** collects project signals (Twitter, on-chain, token metadata) and generates dashboards such as Project Leaderboard & KOL Leaderboard
    ⬇
-3. 🧵 Contributors post on Twitter / perform on-chain tasks
+3. 🤖 **AI Task Generator** creates weekly missions based on project analysis and market signals
    ⬇
-4. 🔍 **Twitter Scanner** collects public signals
+4. 🧵 Contributors post on Twitter / perform on-chain actions
    ⬇
-5. 🧠 **Scoring Engine** filters bots & ranks users
+5. 🔍 **Community Scanner** tracks tweets, wallets, and activity data with timestamp accuracy
    ⬇
-6. 🎯 **Reward System** allocates tokens
+6. 🧠 **Scoring Engine** performs sentiment analysis, filters bots, and ranks contributors by verified impact
    ⬇
-7. 🌐 **Claim Portal** (Solana-based) lets users redeem rewards
+7. 🎯 **Reward System** allocates tokens based on scores
+   ⬇
+8. 🌐 **Claim Portal** (Solana-based) lets users redeem rewards trustlessly
 
-Each step is modular and can be integrated independently. Combined, they create a fully automated contribution loop — from mission design to verifiable impact to reward delivery.
+Each step is modular and can be integrated independently. Combined, they create a fully automated intelligence-to-reward loop — from project analysis to mission design to verifiable impact measurement.
+
+---
+
+## 🧩 Advanced Workflow Customization
+
+While PolinaOS provides a default closed-loop pipeline, advanced users can design **custom workflows** using a visual editor — similar to n8n.
+
+This system allows teams to drag-and-drop modules such as:
+
+- **Data Inputs**: Twitter search, wallet scans, token metadata, sentiment feeds
+- **AI Agents**: Analyst (insights), Creator (missions), Scoring (evaluation), Reward (allocation)
+- **Actions**: Publish mission, update leaderboard, trigger Telegram/Discord bot, execute on-chain contract
+- **Conditions & Branching**: “If sentiment < 40% → trigger crisis mission”, “If token volume spikes → launch shill quest”
+- **Integrations**: Solana RPC, EVM RPC, external APIs (DexScreener, GeckoTerminal), webhooks
+
+The **visual workflow builder** makes it possible to:
+
+- Orchestrate **multi-agent pipelines** without coding
+- Insert **custom data transforms** (filters, enrichment, ML models)
+- Connect to **third-party tools** for analytics, marketing, or governance
+- Run **parallel or conditional flows** depending on project state
+
+### Example Use Case
+
+- Token price spikes → PolinaOS auto-detects → Creator Agent generates an urgent shilling mission → published to Mission Board → Scoring Agent ranks contributors → Reward Agent distributes tokens → summary report posted to Telegram.
+
+With this customization layer, PolinaOS evolves from a **fixed OS** into a **programmable coordination engine** where every project can craft its own intelligence-to-action loop.
+
 
 ---
 
 ## 🛠️ Technical Summary
 
 | Component | Stack |
-|----------|-------|
+|-----------|-------|
+| Intelligence Layer | KOL Leaderboard, Project Leaderboard, Sentiment Analysis, AI-generated Reports |
 | AI Agents | Gemini + LangChain |
-| Data Layer | ctScreener APIs (Twitter) + RPC (Solana) |
+| Data Layer | ctScreener APIs (Twitter) + Solana RPC |
 | Frontend | Next.js + Tailwind |
-| Reward Infra | Merkle Claim on Solana |
+| Reward Infra | Merkle Claim on Solana (EVM support planned) |
 | Hosting | Vercel (frontend) + custom job runners |
